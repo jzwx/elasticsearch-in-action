@@ -1,0 +1,11 @@
+server:
+  port: 8080
+# Elasticsearch 服务器地址
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      properties:
+        transport:
+          tcp:
+            connect_timeout: 120s

@@ -1,0 +1,41 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.9.RELEASE'
+	}
+	repositories {
+		//mavenCentral()
+		maven {
+		url 'http://maven.aliyun.com/nexus/content/groups/public/'
+		}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+//apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.jzwx.spring.boot.blog'
+version = '0.0.1-SNAPSHOT' //项目版本
+sourceCompatibility = 1.8 //指定编译java文件jdk的版本号
+
+//仓库
+repositories {
+	//mavenCentral()
+	maven {
+	url 'http://maven.aliyun.com/nexus/content/groups/public/'
+	}
+}
+
+//依赖关系添加
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	
+	//添加 Spring Data ElasticSearch 的依赖
+	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
